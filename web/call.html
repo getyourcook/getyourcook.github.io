@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+		<title>The Hiring Club</title>
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>
+		<script src="lib/sinch.min.js"></script>
+		<script src="call.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="/css/bootstrap-modal.css">
+    <link rel="stylesheet" href="/lib/style/style.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body>
+    <header style="height: 35px; width: 100%; background-color: #000; font-size: 14px; color: #ddd; padding-left: 15px;">
+      the interview club
+    </header>
+    <section id="main" class="container 75%" style="margin-top:-80px">
+      <div class="container">
+        <div class="clearfix"></div>
+
+        <div class="frame" style="float:left">
+          <h4>Interview For Sycam</h4>
+          <p id="wait_msg" style="display:none;">Waiting for the interviewer to call. It will auto connect.</p>
+          <p id="expert_msg" style="display:none;">Click call to attempt to contact</p>
+          <p id="expert_wait" style="display:none;">Waiting for the candidate to open the page.</p>
+          <p id="connected" style="display:none;">Connected. Click Hangup to end the call.</p>
+          <div id="call" style="margin-top: -80px;">
+            <form id="newCall">
+              <a style="display:none;" class="caller-button" id="callButton">Call</a>
+              <a style="display:none;" class="caller-button" id="hangup">Hangup</a>
+
+              <audio id="ringback" src="lib/style/ringback.wav" loop=""></audio>
+              <audio id="ringtone" src="lib/style/phone_ring.wav" loop=""></audio>
+            </form>
+          </div>
+          <div class="clearfix"><br></div>
+
+          <video id="outgoing" autoplay=""></video>
+          <video id="incoming" autoplay=""></video>
+
+          <div id="callLog">
+          </div>
+          <div class="error">
+          </div>
+        </div>
+      </div>
+    </section>
+<!--
+<div style="position: fixed; bottom: 0; right: 0; height: 400px; width: 300px; z-index: 9999;"><iframe height="400" width="300" src="http://ianww.com/rapchat?r=interviewclub&iframe=1"></iframe></div>
+-->
+<div style="position: fixed; bottom: 0; left: 0; height: 300px; width: 100%; z-index: 9999;"><iframe id="iframe" height="300"></iframe></div>
+<script>
+$(function() {
+    $('#iframe').width($(window).width());
+});
+</script>
+	</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+    <title>The Interview Club</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.dropotron.min.js"></script>
+    <script src="js/jquery.scrollgress.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-layers.min.js"></script>
+    <script src="js/init.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>
+    <script src="lib/tmpl.js"></script>
+    <noscript>
+      <link rel="stylesheet" href="css/skel.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="css/style-wide.css" />
+    </noscript>
+    <link rel="stylesheet" href="/css/bootstrap-modal.css">
+
+    <script>
+      $(function(){
+        $("#expertse_placeholder").load("expertise.html");
+      });
+
+      $(function(){
+        $("#box_template_placeholder").load("expert_box.html");
+      });
+
+      $(function(){
+        $("#request_placeholder").load("request_template.html");
+      });
+
+      $(function(){
+        $("#feedback_placeholder").load("feedback_template.html");
+      });
+    </script>
+    <style>
+      .expertise {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      .selected {
+        color: red;
+
+      }
+    </style>
+
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+  </head>
+  <body>
+
+    <!-- Header -->
+      <header id="header" class="skel-layers-fixed">
+        <h1><a href="index.html">the interview club</a> by JAI</h1>
+        <nav id="nav">
+          <ul>
+            <li><a href="/edit_profile.html">Edit Profile</a></li>
+            <li><a href="/index.html">Logout</a></li>
+          </ul>
+        </nav>
+      </header>
+
+    <!-- Main -->
+      <section id="main" class="container 75%" style="margin-top:-50px">
+        <header>
+
+        </header>
+        <div id="boxes"></div>
+          <div id="profile"></div>
+          <div id="requests"></div>
+      </section>
+
+    <!-- Footer -->
+      <footer id="footer">
+        <ul class="copyright">
+          <li>&copy; Interview Club. All rights reserved.</li>
+        </ul>
+      </footer>
+
+    <div style="display:none" id="box_template_placeholder"></div>
+    <div style="display:none" id="expertse_placeholder"></div>
+    <div style="display:none" id="request_placeholder"></div>
+    <div style="display:none" id="feedback_placeholder"></div>
+    <script type="text/javascript" data-main="expert_dash" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.16/require.min.js"></script>
+  </body>
+</html>

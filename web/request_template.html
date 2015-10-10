@@ -1,0 +1,85 @@
+<style>
+.accepted{
+  color: green;
+}
+.action-button {
+  margin-right: 10px;
+}
+.new {
+  color: green;
+  float: right;
+  margin-top: 14px;
+}
+</style>
+
+
+<script type="template" id="request-template">
+    <div class="box" id="<%= requestId %>">
+      <div>
+      <% if (!companyView) { %>
+        <% if (state.name == 'Requested') { %>
+          <div class="new">
+          <i class="fa fa-money"></i> New
+          </div>
+          <% } %>
+        <h2>Request from <%= company.name %>
+        <span class="state-container"<% if (state.name === 'Requested') { %> style="display:none" <% } %>> - <span class="state <%= state.className %>"><%= state.name %></span></span>
+        </h2>
+
+      <% } %>
+      <% if (companyView) { %>
+        <img src="<%= expert.img %>" style="width: 150px;height:auto; float: left; margin-right: 15px; margin-top:14px;"/>
+        <div style="margin-left: 175px">
+        <h2>Interview by <%= expert.name %> - <%= expert.org %></h2>
+      <% } %>
+
+      <% if (candidateName && candidateEmail) { %>
+      <h4>Candidate: <%= candidateName %></h4>
+      <h4><a href="#"><%= candidateEmail %></a> &middot; <a href="#"><%= candidatePhone %></a></h4>
+      <% } %>
+
+      <% if (candidateFocus || otherInfo) { %>
+        <% if (candidateFocus) { %>
+          <h4>Looking for: <%= candidateFocus %>
+        <% } %>
+        <% if (otherInfo) { %>
+          <h4><%= otherInfo %>
+        <% } %>
+      <% } %>
+
+      <% if (companyView) { %>
+        <h4> Status: <span class="state <%= state.className %>" style="color: green"><%= state.name %></span> </h4>
+        <h4>"<%= expert.details %>"</h4>
+      <% } %>
+
+      <div class="spacer" style="height:15px"></div>
+
+      <% if (!companyView) { %>
+        <div class="actions">
+          <% for (var i = 0; i < state.actions.length; i++) { %>
+            <span class="button special action-button" data-request-id="<%= requestId %>" data-next-state="<%= state.actions[i].nextState %>"><%= state.actions[i].button %></span>
+          <% } %>
+        </div>
+
+        <div class="feedback-form-container"></div>
+      <% } %>
+
+      <% if (companyView) { %>
+        <% if (state.name == 'Complete') { %>
+          <span class="button action-button show-feedback" data-request-id="<%= requestId %>">Show feedback</span>
+
+          <div class="feedback-container" style="display:none;"></div>
+        <% } else if (paymentNeeded) { %>
+          <div class="payment-container" style="display:none;"></div>
+        <% } %>
+        </div>
+      <% } %>
+      </div>
+    </div>
+  </script>
+
+<script type="template" id="request-action">
+  <% for (var i = 0; i < state.actions.length; i++) { %>
+      <span class="button special action-button" data-request-id="<%= requestId %>" data-next-state="<%= state.actions[i].nextState %>"><%= state.actions[i].button %></span>
+  <% } %>
+</script>
