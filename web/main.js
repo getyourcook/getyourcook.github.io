@@ -2,7 +2,8 @@
 
 require(['nav', 'roles'], function(nav, roles) {
 
-Parse.initialize("WYKBPP1wtAdbqiTfjKvkrWhEObFvll67wivhst20", "O1AvRyOcTE1aUV9LvdiJ95Acg9EGyWIgpNf9WNCy");
+// app ID, javascript ID
+Parse.initialize("NuW6H8xbLQNdqSq0NdCWm2Zj7PoC0Dnnwh0wPL27", "ig9ZGZ268OqMor3c50w2vuvzd3EDVkQmNpSNDbwW");
 
 
 $('#login').on('click', function(e) {

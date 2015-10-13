@@ -29,7 +29,7 @@ var STATE_FLOW = {
 };
 
 
-Parse.initialize("WYKBPP1wtAdbqiTfjKvkrWhEObFvll67wivhst20", "O1AvRyOcTE1aUV9LvdiJ95Acg9EGyWIgpNf9WNCy");
+Parse.initialize("NuW6H8xbLQNdqSq0NdCWm2Zj7PoC0Dnnwh0wPL27", "ig9ZGZ268OqMor3c50w2vuvzd3EDVkQmNpSNDbwW");
 
 var currentCompany = Parse.User.current();
 var userQuery = new Parse.Query(Parse.User);
