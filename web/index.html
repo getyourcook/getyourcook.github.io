@@ -12,6 +12,16 @@
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
+		<script src="js/typed.js"></script>
+		<script>
+		  $(function(){
+		      $(".typewriter").typed({
+		        strings: ["What would you like to do today?"],
+		        typeSpeed: 5,
+		        showCursor: false
+		      });
+		  });
+		</script>
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>
     <script type="text/javascript" src="lib/tmpl.js"></script>
 
@@ -67,7 +77,7 @@
 
 		<!-- Banner -->
 			<section id="banner">
-				<h2>What would you like to do today?</h2>
+				<h2 class="typewriter">What would you like to do today?</h2>
         		<p>Large selections of cuisines which could satisfy your stomach</p>
 				<ul class="actions">
 					<li><a id="foodie" class="button special" data-toggle="modal" data-target="#foodieSignupModal">Find a Cook</a></li>
