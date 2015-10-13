@@ -9,17 +9,17 @@ $('#login').on('click', function(e) {
   $('#loginModal').modal('show');
 });
 
-$('.open-company-signup').on('click', function() {
-  $('#companySignupModal').modal('show');
+$('.open-foodie-signup').on('click', function() {
+  $('#foodieSignupModal').modal('show');
   setTimeout(function() {
-    $('#companyEmail').focus();
+    $('#foodieEmail').focus();
   }, 500);
   return false;
 });
-$('.open-expert-signup').on('click', function() {
-  $('#expertSignupModal').modal('show');
+$('.open-cook-signup').on('click', function() {
+  $('#cookSignupModal').modal('show');
   setTimeout(function() {
-    $('#expertEmail').focus();
+    $('#cookEmail').focus();
   }, 500);
   return false;
 });
