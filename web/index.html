@@ -22,6 +22,12 @@
 		        showCursor: false
 		      });
 		  });
+
+
+		function signAlert() {
+			alert("Thanks for signing up to our newsletter! We´ll inform you about upcoming events!");
+		}
+
 		</script>
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>
     <script type="text/javascript" src="lib/tmpl.js"></script>
@@ -176,7 +182,7 @@ margin-top: 4px;"></span>
                                                        <input type="email" name="email" id="emaili2" placeholder="Email Address" />
                                                </div>
                                                <div class="4u 12u(mobilep)">
-                                                       <input type="submit" value="Sign Up" class="fit" />
+                                                       <input type="submit" onclick="signAlert()" value="Sign Up" class="fit" />
                                                </div>
                                        </div>
                                </form>
