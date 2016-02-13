@@ -2,15 +2,36 @@ var fs = require('fs');
 var querystring = require('querystring');
 var secrets = require('../secrets.js');
 var https = require('https');
-var sparkpost = require('sparkpost')({key: secrets.key});
+var sparkpost = require('sparkpost')({key: "70a3fd7abb8ae838e778c139f96cb72fb9088352"});
 
 exports.home = function(req, res) {
   handle(req, res);
-}
+};
 
 exports.main = function(req, res) {
   handle(req, res);
 };
+
+exports.subscribe = function(req, res){
+  var trans = {};
+
+  trans.from = 'subscribe@getyourcook.com';
+  trans.subject = 'A new subscriber';
+  trans.text = '{{subscriber}} just subscribed on getyourcook.com';
+  trans.substitutionData = {
+    subscriber: req.query.email
+  };
+
+  trans.recipients = [{ address: { name: 'getyourcook', email: 'getyourcook.subscribe@gmail.com' }}];
+
+  sparkpost.transmission.send(trans, function(err, res) {
+    if (err) {
+      res.send('FAILED');
+    } else {
+      res.send('OK');
+    }
+  });
+}
 
 exports.request_interview = function(req, res) {
   var trans = {};

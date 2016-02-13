@@ -6,7 +6,9 @@
 		<meta name="author" content="getyourcook" />
 		<meta name="description" content="getyourcook: Menschen kennen lernen in Konstanz durch das was uns alle verbindet: Gutes Essen." />
 		<meta name="keywords" content="getyourcook,Konstanz essen gehen, Konstanz daten, Leute treffen Konstanz, ausgehen in Konstanz, feiern in Konstanz, gut essen in Konstanz" />
-		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<!--[if lte IE 8]>
+			<script src="css/ie/html5shiv.js"></script>
+		<![endif]-->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquery.dropotron.min.js"></script>
 		<script src="js/jquery.scrollgress.min.js"></script>
@@ -14,64 +16,51 @@
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
 		<script src="js/typed.js"></script>
+    	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>
+    	<script type="text/javascript" src="lib/tmpl.js"></script>
 		<script>
-		  $(function(){
-		      $(".typewriter").typed({
-		        strings: ["Was möchten Sie heute essen?"],
-		        typeSpeed: 100,
-		        showCursor: false
-		      });
-		  });
-
-
-		function signAlert() {
-			alert("Danke für Ihre Newsletter-Registrierung! Wir informieren Sie schon bald über Getyourcook-Events!");
-		}
-
-   /*Since we don´t have a database layer yet, just a window-alert was placed here.
-    It is super easy to save the input data in a jason-file: http://www.javascriptatoms.com/2013/12/create-an-input-form-that-automatically-generates-json-with-angularjs/
-    A database-layer would be necessary to save the js-file, however. Currently no time for that :)
-    */
-
-
-
-
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-72434828-1', 'auto');
+			ga('send', 'pageview');
 		</script>
-    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>
-    <script type="text/javascript" src="lib/tmpl.js"></script>
-
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-		ga('create', 'UA-72434828-1', 'auto');
-		ga('send', 'pageview');
-
-	</script>
-
-	<!--share button-->
-
-		<link href="dist/share-button.min.css" rel="stylesheet">
-    <!-- Latest compiled and minified CSS -->
-<!--
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
--->
-    <link rel="stylesheet" href="./css/bootstrap-modal.css">
-
-
-
 
 		<!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		
+		<script>
+			$(function(){
+				$(".typewriter").typed({
+					strings: ["Was möchten Sie heute essen?"],
+					typeSpeed: 100,
+					showCursor: false
+				});
+			});
 
-		<noscript>
-			<link rel="stylesheet" href="/css/skel.css" />
-			<link rel="stylesheet" href="/css/style.css" />
-			<link rel="stylesheet" href="/css/style-wide.css" />
-		</noscript>
+			function signAlert() {
+				$.get( "/subscribe?email=" + $('#emaili2').val(), function( data ) {
+					if(data === 'OK'){
+						alert("Danke für Ihre Newsletter-Registrierung! Wir informieren Sie schon bald über Getyourcook-Events!");
+					} else {
+						alert('Es ist ein Fehler aufgetreten, bitte versuchen Sie es erneut.');
+					}
+				});
+			}
+		</script>
+
+		<!--share button-->
+		<link href="dist/share-button.min.css" rel="stylesheet">
+    	<!-- Latest compiled and minified CSS -->
+		<!--
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+		-->
+    	<link rel="stylesheet" href="./css/bootstrap-modal.css">
+
+		<!--[if lte IE 8]>
+			<link rel="stylesheet" href="css/ie/v8.css" />
+		<![endif]-->
 		<style>
 		.paddtab {
 			padding-left:23em;
@@ -80,216 +69,159 @@
 			top: 0.45em;
 		}
 		</style>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
 	<body class="landing">
-
 		<!-- Header -->
-			<header id="header" class="alt">
-				<h1><a href="index.html">Get Your Cook</a> by getYourCook Team</h1>
-				<nav id="nav">
-					<ul>
-						<li>
-							<a href="#" id="login" class="button special">Login</a>
-			            </li>
-					</ul>
-				</nav>
-			</header>
+		<header id="header" class="alt">
+			<h1><a href="index.html">Get Your Cook</a> by getYourCook Team</h1>
+			<nav id="nav">
+				<ul>
+					<li>
+						<a href="#" id="login" class="button special">Login</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
 
 		<!-- Banner -->
-			<section id="banner">
-				<h2 class="typewriter">What would you like to do today?</h2>
-        		<p>Eine grosse Auswahl an Köstlichkeiten in Konstanz.</p>
-				<ul class="actions">
-					<li><a id="foodie" class="button special" data-toggle="modal" data-target="#foodieSignupModal">Einen Koch finden</a></li>
-          <li>oder</li>
-					<li><a id="cook"  class="button" data-toggle="modal" data-target="#cookSignupModal">Selbst kochen</a></li>
-				</ul>
-			</section>
+		<section id="banner">
+			<h2 class="typewriter">Was möchten Sie heute essen?</h2>
+			<p>Eine grosse Auswahl an Köstlichkeiten in Konstanz.</p>
+			<ul class="actions">
+				<li><a id="foodie" class="button special" data-toggle="modal" data-target="#foodieSignupModal">Einen Koch finden</a></li>
+				<li>oder</li>
+				<li><a id="cook"  class="button" data-toggle="modal" data-target="#cookieSignupModal">Selbst kochen</a></li>
+			</ul>
+		</section>
 
 		<!-- Main -->
-			<section id="main" class="container">
-				<section class="box special">
-					<header class="major" style="text-align:left">
-			            <h2>Die Share-Plattform für gutes Essen, kulinarische Köstlichkeiten und Snacks in Konstanz.</h2>
-			            <div style="margin-top:15px;padding-left:18px;">
-							  <h3>&#10003; &nbsp; mehr als 100 internationale Speisen in Konstanz finden</h3>
-							  <h3>&#10003;  &nbsp; zusammen kochen und neue Leute kennen lernen in Konstanz</h3>
-							  <div class="paddtab">
-								  <p><share-button></share-button></p>
-								  <script src='dist/share-button.js'></script>
-								  <script>
-									var shareButton = new ShareButton();
-								  </script>
-									
-							</div>
-			            </div>
-			        </header>
-<!--
-					<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
--->
-				</section>
-
-				<section class="box special features">
-					<div class="features-row">
-						<section>
-							<span class="icon major fa-cutlery accent2"></span>
-							<h3>Sie können gut kochen? </h3>
-							<p>Wir heissen Sie herzlich willkommen! Gutes Essen findet man nicht nur in Restaurants. Zeigen Sie Konstanz Ihre Kochkünste!</p>
-						</section>
-						<section>
-							<span class="icon major fa-group accent3"></span>
-							<h3>Keine Lust zu kochen?</h3>
-							<p>Lernen Sie hier neue Leute in Konstanz kennen, die für Sie kochen!</p>
-						</section>
+		<section id="main" class="container">
+			<section class="box special">
+				<header class="major" style="text-align:left">
+					<h2>Die Share-Plattform für gutes Essen, kulinarische Köstlichkeiten und Snacks in Konstanz.</h2>
+					<div style="margin-top:15px;padding-left:18px;">
+						  <h3>&#10003; &nbsp; mehr als 100 internationale Speisen in Konstanz finden</h3>
+						  <h3>&#10003;  &nbsp; zusammen kochen und neue Leute kennen lernen in Konstanz</h3>
+						  <div class="paddtab">
+							  <p><share-button></share-button></p>
+						</div>
 					</div>
-					<div class="features-row">
-						<section>
-							<span class="icon major fa-globe accent4"></span>
-							<h3>Sie möchten italienisch essen? Asiatisch? Oder doch eher exotisch?</h3>
-							<p>Unsere Köche stammen aus der ganzen Welt und teilen Ihre besten Köstlichkeiten mit Ihnen. </p>
-						</section>
-						<section>
-							<span class="icon major fa-eur accent5"></span>
-							<h3>Günstiges Essen in Konstanz gesucht?</h3>
-							<p>Sie möchten mal anders in Konstanz ausgehen oder feiern? Egal ob günstiges Studentenessen oder jemanden beim Essen in Konstanz Daten. Hier sind Sie richtig.
-							</p>
-						</section>
+				</header>
+			</section>
+
+			<section class="box special features">
+				<div class="features-row">
+					<section>
+						<span class="icon major fa-cutlery accent2"></span>
+						<h3>Sie können gut kochen? </h3>
+						<p>Wir heissen Sie herzlich willkommen! Gutes Essen findet man nicht nur in Restaurants. Zeigen Sie Konstanz Ihre Kochkünste!</p>
+					</section>
+					<section>
+						<span class="icon major fa-group accent3"></span>
+						<h3>Keine Lust zu kochen?</h3>
+						<p>Lernen Sie hier neue Leute in Konstanz kennen, die für Sie kochen!</p>
+					</section>
+				</div>
+				<div class="features-row">
+					<section>
+						<span class="icon major fa-globe accent4"></span>
+						<h3>Sie möchten italienisch essen? Asiatisch? Oder doch eher exotisch?</h3>
+						<p>Unsere Köche stammen aus der ganzen Welt und teilen Ihre besten Köstlichkeiten mit Ihnen. </p>
+					</section>
+					<section>
+						<span class="icon major fa-eur accent5"></span>
+						<h3>Günstiges Essen in Konstanz gesucht?</h3>
+						<p>Sie möchten mal anders in Konstanz ausgehen oder feiern? Egal ob günstiges Studentenessen oder jemanden beim Essen in Konstanz Daten. Hier sind Sie richtig.
+						</p>
+					</section>
+				</div>
+			</section>
+
+			<section id="cta">
+			   <h2>Melden Sie sich hier für den Beta-Zugang an!</h2>
+			   <p>Wir informieren Sie über getyourcook-Events!</p>
+			   <form>
+				   <div class="row uniform 50%">
+					   <div class="8u 12u(mobilep)">
+						   <input type="email" name="email" id="emaili2" placeholder="Email Address" />
+					   </div>
+					   <div class="4u 12u(mobilep)">
+						   <input type="submit" onclick="signAlert()" value="Sign Up" class="fit" />
+					   </div>
+				   </div>
+			   </form>
+			</section>
+		</section>
+		<!-- Footer -->
+		<footer id="footer">
+			<ul class="icons">
+				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+				<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+				<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; www.getyourcook.com. All rights reserved.</li>
+			</ul>
+		</footer>
+
+		<!-- Modals -->
+		<div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" style="margin-top: 10%">
+				<div class="modal-content">
+					<div class="modal-header">
+						<span style="float:right;cursor:pointer" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+						<h4 class="modal-title" id="myModalLabel">Login</h4>
 					</div>
-				</section>
-				
-				   
-
-<!--
-        </section>
-
-
-				<div class="row">
-					<div class="6u 12u(narrower)">
-
-						<section class="box special">
-							<span class="image featured" style="background-image: url(https://scontent.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/1001003_3154824847204_1379971212_n.jpg?oh=f398b8067024e1299857526f4b07bdf9&oe=5581F657);
-width: 300px;
-height: 300px;
-background-size: cover;
-margin-left: 20px;
-margin-top: 4px;"></span>
-							<h3>Steve, software engineer</h3>
-							<p>Helped hire and build the team at startup acquired by Google.  Expert in mobile development.</p>
-							<ul class="actions">
-								<li><a href="#" class="button alt">Help me out!</a></li>
-							</ul>
-						</section>
-
-					</div>
-					<div class="6u 12u(narrower)">
-						<section class="box special">
-							<span class="image featured" style="background-image: url(https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xfa1/v/t1.0-9/10527696_10152579269217156_5639945087273067209_n.jpg?oh=61ad85e20fdc5248eed59aed71473bb5&oe=5594B193&__gda__=1431061886_c05b16c1221b107f14290a2452fe17cf);
-width: 300px;
-height: 300px;
-background-size: cover;
-margin-left: 20px;
-margin-top: 4px;"></span>
-							<h3>Judith, engineer at Amazon</h3>
-							<p>Conducts interviews for Amazon, great at algorithms and data structures.</p>
-							<ul class="actions">
-								<li><a href="#" class="button alt">Screen my candidates!</a></li>
-							</ul>
-						</section>
-
+					<div class="modal-body">
+						<div id="expert_form">
+							<form class="form-login">
+								<label for="inputEmail">Email address</label>
+								<input type="email" name="email" id="inputEmail" placeholder="Email address" required="" autofocus="" style="margin-bottom:15px;">
+								<label for="inputPassword">Password</label>
+								<input type="password" name="password" placeholder="Password" required="" style="margin-bottom:15px;">
+								<button class="button btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+							</form>
+						</div>
+						<div id="retry" style="display:none">Oops, couldn't find those credentials. Please try again.</div>
 					</div>
 				</div>
+			</div>
+		</div>
 
-			</section>-->
+		<div class="modal fade" id="cookieSignupModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" style="margin-top: 10%">
+				<div class="modal-content">
+					<div class="modal-header">
+						<span style="float:right;cursor:pointer" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+						<h4 class="modal-title" id="myModalLabel">Dieses Feature steht noch nicht zur Verfügung.</h4>
+					</div>
+					<div class="modal-body">
+						<p>Melde dich jetzt für unseren Newsletter an, um über Neuigkeiten informiert zu bleiben.</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
-               <!-- CTA -->
-                       <section id="cta">
-
-                               <h2>Melden Sie sich hier für den Beta-Zugang an!</h2>
-                               <p>Wir informieren Sie über getyourcook-Events!</p>
-
-                               <form>
-                                       <div class="row uniform 50%">
-                                               <div class="8u 12u(mobilep)">
-                                                       <input type="email" name="email" id="emaili2" placeholder="Email Address" />
-                                               </div>
-                                               <div class="4u 12u(mobilep)">
-                                                       <input type="submit" onclick="signAlert()" value="Sign Up" class="fit" />
-                                               </div>
-                                       </div>
-                               </form>
-						   
-                       </section>
-					  
-
-
-
-
-		<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-					<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-					<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; www.getyourcook.com. All rights reserved.</li>
-				</ul>
-			</footer>
-
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" style="margin-top: 10%">
-        <div class="modal-content">
-          <div class="modal-header">
-            <span style="float:right;cursor:pointer" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></span>
-            <h4 class="modal-title" id="myModalLabel">Login</h4>
-          </div>
-          <div class="modal-body">
-            <div id="expert_form" >
-              <form class="form-login">
-                <label for="inputEmail">Email address</label>
-                <input type="email" name="email" id="inputEmail" placeholder="Email address" required="" autofocus="" style="margin-bottom:15px;">
-                <label for="inputPassword">Password</label>
-                <input type="password" name="password" placeholder="Password" required="" style="margin-bottom:15px;">
-                <button class="button btn btn-lg btn-primary btn-block" type="submit">Log in</button>
-              </form>
-            </div>
-            <div id="retry" style="display:none">Oops, couldn't find those credentials. Please try again.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="cookSignupModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" style="margin-top: 10%">
-        <div class="modal-content">
-          <div class="modal-header">
-            <span style="float:right;cursor:pointer" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></span>
-            <h4 class="modal-title" id="myModalLabel">Dieses Feature steht noch nicht zur Verfügung.</h4>
-          </div>
-          <div class="modal-body">
-            <p>Melde dich jetzt für unseren Newsletter an, um über Neuigkeiten informiert zu bleiben.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="foodieSignupModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" style="margin-top: 10%">
-        <div class="modal-content">
-          <div class="modal-header">
-            <span style="float:right;cursor:pointer" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></span>
-            <h4 class="modal-title" id="myModalLabel">Dieses Feature steht noch nicht zur Verfügung.</h4>
-          </div>
-          <div class="modal-body">
-            <p>Melde dich jetzt für unseren Newsletter an, um über Neuigkeiten informiert zu bleiben.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script type="text/javascript" data-main="main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.16/require.min.js"></script>
+		<div class="modal fade" id="foodieSignupModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" style="margin-top: 10%">
+				<div class="modal-content">
+					<div class="modal-header">
+						<span style="float:right;cursor:pointer" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+						<h4 class="modal-title" id="myModalLabel">Dieses Feature steht noch nicht zur Verfügung.</h4>
+					</div>
+					<div class="modal-body">
+						<p>Melde dich jetzt für unseren Newsletter an, um über Neuigkeiten informiert zu bleiben.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" data-main="main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.16/require.min.js"></script>
+		<script src='dist/share-button.js'></script>
+		<script>
+			var shareButton = new ShareButton();
+		</script>
 	</body>
 </html>
