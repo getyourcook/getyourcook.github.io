@@ -1,7 +1,8 @@
 var fs = require('fs');
 var querystring = require('querystring');
 var https = require('https');
-var sparkpost = require('sparkpost')({key: "70a3fd7abb8ae838e778c139f96cb72fb9088352"});
+var SparkPost = require('sparkpost');
+var sparkpost = new SparkPost("70a3fd7abb8ae838e778c139f96cb72fb9088352");
 
 exports.home = function(req, res) {
   handle(req, res);
@@ -12,25 +13,38 @@ exports.main = function(req, res) {
 };
 
 exports.subscribe = function(req, res){
-  var trans = {};
-
-  trans.from = 'subscribe@getyourcook.com';
-  trans.subject = 'A new subscriber';
-  trans.text = '{{subscriber}} just subscribed on getyourcook.com';
-  trans.substitutionData = {
-    subscriber: req.query.email
-  };
-
-  trans.recipients = [{ address: { name: 'getyourcook', email: 'getyourcook.subscribe@gmail.com' }}];
-
-  sparkpost.transmission.send(trans, function(err, res) {
+  var error = false;
+  sparkpost.transmissions.send({
+      transmissionBody: {
+          content: {
+              from: 'subscribe@getyourcook.com',
+              subject: 'A new subscriber',
+              text: '{{subscriber}} just subscribed on getyourcook.com'
+          },
+          recipients: [
+              {
+                  "address": {
+                      name: 'getyourcook',
+                      email: 'getyourcook.subscribe@gmail.com'
+                  },
+                  "substitution_data": {
+                      "subscriber": req.query.email
+                  }
+              }
+          ]
+      }
+  }, function(err, res) {
     if (err) {
-      res.send('FAILED');
-    } else {
-      res.send('OK');
+      console.log('Error %o', err);
+      error = true;
     }
   });
-}
+  if(!error){
+    res.send('OK');
+  } else {
+    res.send('FAILED');
+  }
+};
 
 exports.request_interview = function(req, res) {
   var trans = {};
