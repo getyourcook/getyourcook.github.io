@@ -1,6 +1,5 @@
 var fs = require('fs');
 var querystring = require('querystring');
-var secrets = require('../secrets.js');
 var https = require('https');
 var sparkpost = require('sparkpost')({key: "70a3fd7abb8ae838e778c139f96cb72fb9088352"});
 
