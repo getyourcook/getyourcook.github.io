@@ -16,8 +16,8 @@
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
 		<script src="js/typed.js"></script>
-    	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>
-    	<script type="text/javascript" src="lib/tmpl.js"></script>
+    		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>
+    		<script type="text/javascript" src="lib/tmpl.js"></script>
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -52,22 +52,22 @@
 
 		<!--share button-->
 		<link href="dist/share-button.min.css" rel="stylesheet">
-    	<!-- Latest compiled and minified CSS -->
+    		<!-- Latest compiled and minified CSS -->
 		<!--
-    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		-->
-    	<link rel="stylesheet" href="./css/bootstrap-modal.css">
+    		<link rel="stylesheet" href="./css/bootstrap-modal.css">
 
 		<!--[if lte IE 8]>
 			<link rel="stylesheet" href="css/ie/v8.css" />
 		<![endif]-->
 		<style>
-		.paddtab {
-			padding-left:23em;
-		}
-		share-button::before {
-			top: 0.45em;
-		}
+			.paddtab {
+				padding-left:23em;
+			}
+			share-button::before {
+				top: 0.45em;
+			}
 		</style>
 	</head>
 	<body class="landing">
@@ -103,7 +103,11 @@
 						  <h3>&#10003; &nbsp; mehr als 100 internationale Speisen in Konstanz finden</h3>
 						  <h3>&#10003;  &nbsp; zusammen kochen und neue Leute kennen lernen in Konstanz</h3>
 						  <div class="paddtab">
-							  <p><share-button></share-button></p>
+							<p><share-button></share-button></p>
+							<script src='dist/share-button.js'></script>
+							<script>
+								var shareButton = new ShareButton();
+							</script>
 						</div>
 					</div>
 				</header>
@@ -219,9 +223,5 @@
 			</div>
 		</div>
 		<script type="text/javascript" data-main="main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.16/require.min.js"></script>
-		<script src='dist/share-button.js'></script>
-		<script>
-			var shareButton = new ShareButton();
-		</script>
 	</body>
 </html>
